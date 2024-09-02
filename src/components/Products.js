@@ -36,6 +36,7 @@ function Products() {
     })
   }
 
+
   return (
     <div className="products-page">
       <Filter changeCategory={changeCategory}/>
