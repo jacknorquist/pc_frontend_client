@@ -18,7 +18,7 @@ function RoutesList(){
         <Routes>
             <Route path="/products" element={<LoggedInProtection><Products /></LoggedInProtection>} />
             <Route path="/products/:category" element={<LoggedInProtection><Products /></LoggedInProtection>} />
-            <Route path="/products/:name" element={<Product productId={productId}} />
+            <Route path="/products/:name" element={<Product proudctId={productId} />}/>
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

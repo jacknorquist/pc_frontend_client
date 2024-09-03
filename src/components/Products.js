@@ -18,7 +18,7 @@ function Products() {
   useEffect(() => {
     //fetch products
     async function fetchProducts() {
-      products = ProductCatalogApi(token, productsCategoryState.category)
+      const products = ProductCatalogApi.getProducts(TOKEN, productsCategoryState.category)
       setProductsCategoryState(
         productsCategoryState = {
           category:productsCategoryState.category,
