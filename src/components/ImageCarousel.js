@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const TOKEN = process.env.API_KEY
 
-function Product({productId}) {
+function ImageCarousel({productId}) {
   const [productState, setProductState] = useState(null)
   const [imageState, setImageState] = useState(null)
 
@@ -34,4 +34,4 @@ function Product({productId}) {
   );
 }
 
-export default Product;
+export default ImageCarousel;
