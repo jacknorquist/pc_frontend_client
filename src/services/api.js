@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 const BASE_API_URL = process.env.URL
 const TOKEN = process.env.API_KEY
@@ -7,7 +6,7 @@ class ProductCatalogApi {
 
   /**getProducts:
    *  -params: category
-   *  -returns: Products
+   *  -returns: products
    */
   static async getProducts(category=null){
     let response
@@ -37,6 +36,11 @@ class ProductCatalogApi {
     }
     return await response.json()
   }
+
+  /**getProduct:
+   *  -params: productId
+   *  -returns: product
+   */
   static async getProduct(productId){
 
 

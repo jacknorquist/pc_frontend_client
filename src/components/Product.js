@@ -1,21 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, useEffect } from 'react';
-import ProductCatalogApi from '../../services/api';
+
+
+import { useState, useEffect, location} from 'react';
 import ImageCarousel from './ImageCarousel'
-require('dotenv').config();
+import ProductCatalogApi from '../services/api.js'
 
 
 const TOKEN = process.env.API_KEY
 
-function Product({productId}) {
+function Product() {
   const [productState, setProductState] = useState(null)
-  const [imageState, setImageState] = useState(null)
+
+  const {id} = location.state
 
   useEffect(() => {
     //fetch product
     async function fetchProduct() {
-      const product = ProductCatalogApi.getProduct(TOKEN, productId)
+      const product = ProductCatalogApi.getProduct(TOKEN, id)
       setProductState(productState=product)
     }
     fetchProduct();
@@ -24,6 +24,7 @@ function Product({productId}) {
 
   return (
     <div className="productContainer">
+
       <h1>{productState.name}</h1>
       <p>{productState.description}</p>
       <div className='productImages'>
@@ -49,6 +50,7 @@ function Product({productId}) {
       </div>
 
     </div>
+
   );
 }
 

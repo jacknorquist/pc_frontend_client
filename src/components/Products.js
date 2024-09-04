@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import ProductCatalogApi from '../../services/api';
+
+import ProductCatalogApi from '../services/api';
+
 import Filter from './Filter';
 import ProductPreviewItem from './ProductPreviewItem';
 import { useEffect, useState } from 'react';
-require('dotenv').config();
 import { v4 as uuidv4 } from 'uuid';
 
 const TOKEN = process.env.API_KEY

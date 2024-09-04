@@ -1,7 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+
 import { useState, useEffect } from 'react';
-require('dotenv').config();
 
 
 const TOKEN = process.env.API_KEY

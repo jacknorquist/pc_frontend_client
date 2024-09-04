@@ -1,6 +1,6 @@
-import NotFound from '../main/NotFound.tsx'
 import Products from './Products.js';
 import Product from './Product.js';
+import { Route, Routes } from "react-router-dom";
 
 
 /**RoutesList: handles routing
@@ -16,10 +16,9 @@ import Product from './Product.js';
 function RoutesList(){
     return (
         <Routes>
-            <Route path="/products" element={<LoggedInProtection><Products /></LoggedInProtection>} />
-            <Route path="/products/:category" element={<LoggedInProtection><Products /></LoggedInProtection>} />
-            <Route path="/products/:name" element={<Product proudctId={productId} />}/>
-            <Route path="*" element={<NotFound />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:category" element={<Products />} />
+            <Route path="/products/:name" element={<Product />}/>
         </Routes>
     );
 }

@@ -1,17 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
 import RoutesList from './Routes';
+import { BrowserRouter} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <RoutesList />
-
+        <BrowserRouter>
+          <RoutesList />
+        </BrowserRouter>
         <a
           className="App-link"
           href="https://reactjs.org"
