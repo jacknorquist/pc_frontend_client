@@ -1,9 +1,9 @@
 
 import { Link } from "react-router-dom";
-import styles from '../css/ProductPreviewItem.module.css'
+import styles from '../css/ProductPreviewItem.module.css';
+import { v4 as uuidv4 } from 'uuid';
 
 function ProductPreviewItem({product}) {
-  console.log(product)
 
   return (
     <div className={styles.productPreviewItem}data-id={product.id}>
@@ -18,7 +18,7 @@ function ProductPreviewItem({product}) {
         </div>
         <ul className={styles.colorsPreview}>
           {product.colors.map(color =>
-                               <li className={styles.colorPreview}>
+                               <li key={uuidv4()} className={styles.colorPreview}>
                                 <img className={styles.colorPreviewImg}src={color.image_url} />
                                </li>)}
         </ul>

@@ -1,7 +1,7 @@
 .productPreviewItem{
     border: 1px solid lightgray;
     padding: 1em;
-    height: 40vh;
+    height: 55vh;
 }
 .descriptionContainer{
   display: flex;
@@ -18,9 +18,11 @@
   grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
   list-style-type: none;
   margin: 0;
-  margin-left: 0;
+  padding-left: 0;
 }
 
 .colorPreviewImg{
   width: 100%;
+  border-radius: 100%;
+  margin: .1em;
 }

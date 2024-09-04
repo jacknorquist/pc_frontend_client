@@ -9,12 +9,12 @@ class ProductCatalogApi {
    *  -returns: products
    */
   static async getProducts(category=null){
-    console.log(BASE_API_URL, TOKEN)
     let response
 
     if(category){
+      console.log(category, 'in category fetch')
 
-      response = await fetch(`${BASE_API_URL}/products/${category}`, {
+      response = await fetch(`${BASE_API_URL}/products/${category.toLowerCase()}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ class ProductCatalogApi {
         },
         });
     }
-    console.log(response)
+    console.log(response, 'responseee')
 
     if (!response.ok) {
       const errorMessage = await response.text();

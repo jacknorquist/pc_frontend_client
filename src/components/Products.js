@@ -14,12 +14,12 @@ function Products() {
     products:null
   })
 
-  console.log(productsCategoryState.products)
 
   useEffect(() => {
     //fetch products
     async function fetchProducts() {
-      const products = await ProductCatalogApi.getProducts(TOKEN, productsCategoryState.category)
+      console.log('category at products', productsCategoryState.category)
+      const products = await ProductCatalogApi.getProducts(productsCategoryState.category)
       setProductsCategoryState({
           category:productsCategoryState.category,
           products: products
@@ -38,7 +38,7 @@ function Products() {
 
 
   return (
-    <div className="products-page">
+    <div className={styles.productsPageContainer}>
       <Filter changeCategory={changeCategory}/>
       {productsCategoryState.products ?
         <div className={styles.products}>
