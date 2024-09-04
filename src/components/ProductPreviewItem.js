@@ -7,17 +7,21 @@ function ProductPreviewItem({product}) {
 
   return (
     <div className={styles.productPreviewItem}data-id={product.id}>
-      <Link to={`/products/${product.name}`} state={{id : product.id}}>
         <img src={product.images[0].image_url} className={styles.mainImage}/>
-        <p className='product-name'>{product.name}</p>
-        <p><i>{product.normalized_category_name}</i></p>
+        <div className={styles.descriptionContainer}>
+          <Link to={`/products/${product.name}`} state={{id : product.id}}>
+            <p className='product-name'>{product.name}</p>
+          </Link>
+          <Link to={`/products/${product.normalized_category_name}`}>
+            <p><i>{product.normalized_category_name}</i></p>
+          </Link>
+        </div>
         <ul className={styles.colorsPreview}>
           {product.colors.map(color =>
                                <li className={styles.colorPreview}>
                                 <img className={styles.colorPreviewImg}src={color.image_url} />
                                </li>)}
         </ul>
-      </Link>
     </div>
   );
 }
