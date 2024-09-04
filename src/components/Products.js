@@ -1,6 +1,6 @@
 
 import ProductCatalogApi from '../services/api';
-
+import styles from '../css/Products.module.css'
 import Filter from './Filter';
 import ProductPreviewItem from './ProductPreviewItem';
 import { useEffect, useState } from 'react';
@@ -41,7 +41,7 @@ function Products() {
     <div className="products-page">
       <Filter changeCategory={changeCategory}/>
       {productsCategoryState.products ?
-        <div className='products'>
+        <div className={styles.products}>
           {productsCategoryState.products.map(p=>
                                                 <ProductPreviewItem
                                                 key={uuidv4()}

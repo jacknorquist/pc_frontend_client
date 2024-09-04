@@ -1,0 +1,19 @@
+.productPreviewItem{
+    border: 1px solid lightgray;
+    padding: 1em;
+}
+.mainImage{
+  width: 100%;
+  object-fit: cover;
+}
+.colorsPreview{
+  display: flex;
+  width:100%;
+}
+.colorsPreview{
+  width: 25%;
+}
+
+.colorPreviewImg{
+  width: 100%;
+}
