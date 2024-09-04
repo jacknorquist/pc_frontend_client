@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 
 const TOKEN = process.env.API_KEY
 
@@ -30,13 +30,13 @@ function ImageCarousel({images}) {
   return (
     <div className="image-carousel">
       <div className='main-image'>
-        <img src={imageState.images[imageState.index]}/>
+        <img src={imageState.images[imageState.index].image_url}/>
       </div>
       <div className='image-thumbnails'>
         {imageState.colorImage ? imageState.images.map((image, index)=>{
           if(image?.color === imageState.colorImage && index !=imageState.index){
             return <img
-                        key={index}
+                        key={uuidv4()}
                         className='image-thumbnail'
                         src={image.image_url}
                         onClick={updateImageIndex}
@@ -48,7 +48,7 @@ function ImageCarousel({images}) {
         imageState.images.map((image, index) => {
           if (index !== imageState.index) {
             return <img
-                        key={index}
+                        key={uuidv4()}
                         className='image-thumbnail'
                         src={image} alt={`Thumbnail ${index}`}
                         onClick={updateImageIndex}
