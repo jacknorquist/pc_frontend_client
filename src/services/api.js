@@ -1,6 +1,6 @@
 
-const BASE_API_URL = process.env.URL
-const TOKEN = process.env.API_KEY
+const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
+const TOKEN = process.env.REACT_APP_API_KEY
 
 class ProductCatalogApi {
 
@@ -9,6 +9,7 @@ class ProductCatalogApi {
    *  -returns: products
    */
   static async getProducts(category=null){
+    console.log(BASE_API_URL, TOKEN)
     let response
 
     if(category){
@@ -29,6 +30,7 @@ class ProductCatalogApi {
         },
         });
     }
+    console.log(response)
 
     if (!response.ok) {
       const errorMessage = await response.text();

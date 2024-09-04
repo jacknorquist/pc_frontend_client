@@ -14,6 +14,8 @@ function Products() {
     products:null
   })
 
+  console.log(productsCategoryState.products)
+
   useEffect(() => {
     //fetch products
     async function fetchProducts() {
