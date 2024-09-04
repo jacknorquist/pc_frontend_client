@@ -11,7 +11,7 @@ function ImageCarousel({images}) {
     setImageState(
       imageState.images = imageState.images,
       imageState.index = event.key,
-      colorImage = imageState.colorImage
+      imageState.colorImage = imageState.colorImage
     )
   }
 
@@ -30,11 +30,11 @@ function ImageCarousel({images}) {
   return (
     <div className="image-carousel">
       <div className='main-image'>
-        <img src={images[imageState.index]}></img>
+        <img src={imageState.images[imageState.index]}/>
       </div>
       <div className='image-thumbnails'>
         {imageState.colorImage ? imageState.images.map((image, index)=>{
-          if(image?.color === imageState.colorImage && index !=imagesState.index){
+          if(image?.color === imageState.colorImage && index !=imageState.index){
             return <img
                         key={index}
                         className='image-thumbnail'
@@ -59,7 +59,7 @@ function ImageCarousel({images}) {
         }
         {imageState.colorImage ?
         <div className='show-all-image-btn'
-        onClick={returnToAllImages}>
+              onClick={returnToAllImages}>
              Show All Images
         </div>
           :""}
