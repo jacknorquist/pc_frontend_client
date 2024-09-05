@@ -1,0 +1,19 @@
+.productContainer{
+  width: 65%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+  margin: auto;
+}
+
+.productImages{
+  grid-column: 1/4;
+}
+
+.productInfo{
+  grid-column: 5/9;
+}
+
+.colorImage{
+  width: 25%;
+}

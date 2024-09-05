@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import styles from '../css/ImageCarousel.module.css'
 
 const TOKEN = process.env.API_KEY
 
@@ -28,16 +29,16 @@ function ImageCarousel({images}) {
   //if images state signals that a color has been clicked, show images connected
   //to the color, else display all images
   return (
-    <div className="image-carousel">
-      <div className='main-image'>
-        <img src={imageState.images[imageState.index].image_url}/>
+    <div className={styles.imageCarousel}>
+      <div>
+        <img className={styles.mainImage} src={imageState.images[imageState.index].image_url}/>
       </div>
-      <div className='image-thumbnails'>
+      <div className={styles.thumnailImages}>
         {imageState.colorImage ? imageState.images.map((image, index)=>{
           if(image?.color === imageState.colorImage && index !=imageState.index){
             return <img
                         key={uuidv4()}
-                        className='image-thumbnail'
+                        className={styles.thumnbnailImage}
                         src={image.image_url}
                         onClick={updateImageIndex}
                         />
@@ -49,7 +50,7 @@ function ImageCarousel({images}) {
           if (index !== imageState.index) {
             return <img
                         key={uuidv4()}
-                        className='image-thumbnail'
+                        className={styles.thumbnailImage}
                         src={image.image_url} alt={`Thumbnail ${index}`}
                         onClick={updateImageIndex}
                         />
@@ -58,7 +59,7 @@ function ImageCarousel({images}) {
         })
         }
         {imageState.colorImage ?
-        <div className='show-all-image-btn'
+        <div className={styles.showAllBtn}
               onClick={returnToAllImages}>
              Show All Images
         </div>
