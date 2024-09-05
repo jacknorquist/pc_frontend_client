@@ -12,7 +12,7 @@ class ProductCatalogApi {
     let response
 
     if(category){
-      const cleanedCategory = category.replace(' ', '-')
+      const cleanedCategory = category.replace(/ /g, '-')
 
       response = await fetch(`${BASE_API_URL}/products/${cleanedCategory}`, {
       method: 'GET',
@@ -30,7 +30,6 @@ class ProductCatalogApi {
         },
         });
     }
-    console.log(response, 'responseee')
 
     if (!response.ok) {
       const errorMessage = await response.text();
@@ -46,7 +45,7 @@ class ProductCatalogApi {
   static async getProduct(productId){
 
 
-    const response = await fetch(`${BASE_API_URL}/products/${productId}`, {
+    const response = await fetch(`${BASE_API_URL}/product/${productId}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

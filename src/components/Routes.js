@@ -18,7 +18,7 @@ function RoutesList(){
         <Routes>
             <Route path="/products" element={<Products />} />
             <Route path="/products/:category" element={<Products />} />
-            <Route path="/products/:name" element={<Product />}/>
+            <Route path="/product/:name" element={<Product />}/>
         </Routes>
     );
 }

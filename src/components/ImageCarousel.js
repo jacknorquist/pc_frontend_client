@@ -50,7 +50,7 @@ function ImageCarousel({images}) {
             return <img
                         key={uuidv4()}
                         className='image-thumbnail'
-                        src={image} alt={`Thumbnail ${index}`}
+                        src={image.image_url} alt={`Thumbnail ${index}`}
                         onClick={updateImageIndex}
                         />
           }

@@ -5,11 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 function ProductPreviewItem({product}) {
 
+  const cleanedProductName = product.name.replace(/ /g, '-')
+
   return (
     <div className={styles.productPreviewItem}data-id={product.id}>
         <img src={product.images[0].image_url} className={styles.mainImage}/>
         <div className={styles.descriptionContainer}>
-          <Link to={`/products/${product.name}`} state={{id : product.id}}>
+          <Link to={`/product/${cleanedProductName}`} state={{id : product.id}}>
             <p className='product-name'>{product.name}</p>
           </Link>
           <Link to={`/products/${product.normalized_category_name}`}>
