@@ -68,7 +68,7 @@ function Product() {
       }
     )
   }
-  console.log(imagesState)
+  console.log(productState)
 
 
 
@@ -88,8 +88,9 @@ function Product() {
           <div className={styles.colorContainer}>
             <h6>Colors</h6>
             {productState.colors.map(color =>
-            <div key={uuidv4()}>
+            <div className={styles.colorItem} key={uuidv4()}>
               <p>{color.name}</p>
+              {color.accent? <i>Accent Color</i>: null}
               <img className={styles.colorImage}
                     src={color.image_url}
                     data-name={color.name}

@@ -1,4 +1,5 @@
 .productContainer{
+  margin-top:15%;
   width: 65%;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
@@ -13,12 +14,18 @@
 }
 
 .productInfo{
+  margin-top: 15%;
+  margin-left: 8%;
   grid-column: 5/9;
 }
 .colorContainer{
-  display: flex;
-  justify-content: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
 }
 .colorImage{
-  width: 25%;
+  width: 85%;
+}
+
+.colorItem{
+  text-align: center;
 }
