@@ -12,9 +12,9 @@ class ProductCatalogApi {
     let response
 
     if(category){
-      console.log(category, 'in category fetch')
+      const cleanedCategory = category.replace(' ', '-')
 
-      response = await fetch(`${BASE_API_URL}/products/${category.toLowerCase()}`, {
+      response = await fetch(`${BASE_API_URL}/products/${cleanedCategory}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
