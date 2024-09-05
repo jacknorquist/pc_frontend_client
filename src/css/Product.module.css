@@ -2,18 +2,23 @@
   width: 65%;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
   grid-template-rows: auto;
   margin: auto;
 }
 
 .productImages{
-  grid-column: 1/4;
+  grid-column: 1/5;
+  margin-top: 15%;
 }
 
 .productInfo{
   grid-column: 5/9;
 }
-
+.colorContainer{
+  display: flex;
+  justify-content: start;
+}
 .colorImage{
   width: 25%;
 }
