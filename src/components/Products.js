@@ -1,6 +1,7 @@
 
 import ProductCatalogApi from '../services/api';
-import styles from '../css/Products.module.css'
+import styles from '../css/Products.module.css';
+import { useParams } from 'react-router-dom';
 import Filter from './Filter';
 import ProductPreviewItem from './ProductPreviewItem';
 import { useEffect, useState } from 'react';
@@ -9,8 +10,9 @@ import { v4 as uuidv4 } from 'uuid';
 const TOKEN = process.env.API_KEY
 
 function Products() {
+  const category = useParams().category;
   const [productsCategoryState, setProductsCategoryState] = useState({
-    category:null,
+    category: category,
     products:null
   })
 

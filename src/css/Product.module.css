@@ -18,7 +18,7 @@
   margin-left: 8%;
   grid-column: 5/9;
 }
-.colorContainer{
+.colorsContainer{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
 }
@@ -28,4 +28,25 @@
 
 .colorItem{
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
 }
+
+.sizesContainer{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+}
+.sizeImage{
+  width: 85%;
+}
+
+.sizeItem{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+

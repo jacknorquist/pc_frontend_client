@@ -19,7 +19,10 @@ function Product() {
 
   const location = useLocation();
 
-  const {id} = location.state
+  const {id} = location.state;
+
+  let accentColors =[]
+  let nonAccentColors =[]
 
 
   useEffect(() => {
@@ -28,6 +31,8 @@ function Product() {
       if (id) {
         try {
           const product = await ProductCatalogApi.getProduct(id);
+          product['nonAccentColors'] = product.colors.filter(color => !color.accent_color);
+          product['accentColors'] = product.colors.filter(color => color.accent_color);
           setProductState(product);
           setImagesState({
             images: product.images || [], // Initialize with product images
@@ -85,37 +90,56 @@ function Product() {
             <h6>Description</h6>
             <p>{productState.description}</p>
           </div>
-          <div className={styles.colorContainer}>
+          <div className={styles.details}>
             <h6>Colors</h6>
-            {productState.colors.map(color =>
-            <div className={styles.colorItem} key={uuidv4()}>
-              <p>{color.name}</p>
-              {color.accent? <i>Accent Color</i>: null}
-              <img className={styles.colorImage}
-                    src={color.image_url}
-                    data-name={color.name}
-                    data-url={color.image_url}
-                    onClick={updateImageState}
-                    >
-              </img>
-              </div>)}
-          </div>
-          <div className={styles.textureContainer}>
-            <h6>Textures</h6>
-              {productState.textures.map(texture=>
-                <div key={uuidv4()} className={styles.textureContainer}>
-                  <p key={uuidv4()}>{texture.name}</p>
-                  <img key={uuidv4()}>{texture.image_url}</img>
+            <div className={styles.colorsContainer}>
+              {productState.nonAccentColors.map(color =>
+              <div className={styles.colorItem} key={uuidv4()}>
+                <p>{color.name}</p>
+                {color.accent_color? <i>Accent Color</i>: null}
+                <img className={styles.colorImage}
+                      src={color.image_url}
+                      data-name={color.name}
+                      data-url={color.image_url}
+                      onClick={updateImageState}
+                      >
+                </img>
                 </div>)}
-          </div>
-          <div className={styles.sizesContainer}>
-            <h6>Sizes</h6>
-            {productState.sizes.map(size =>
-              <div key={uuidv4()} className={styles.sizeContainer}>
-              <b key={uuidv4()}>{size.name}</b>
-              {size.dimensions.map(d => <p key={uuidv4()}>{d}</p>)}
+                {productState.accentColors.map(color =>
+              <div className={styles.colorItem} key={uuidv4()}>
+                <p>{color.name}</p>
+                {color.accent_color? <i>Accent Color</i>: null}
+                <img className={styles.colorImage}
+                      src={color.image_url}
+                      data-name={color.name}
+                      data-url={color.image_url}
+                      onClick={updateImageState}
+                      >
+                </img>
+                </div>)}
               </div>
-            )}
+          </div>
+          <div className={styles.details}>
+            <div className={styles.textureContainer}>
+              <h6>Textures</h6>
+                {productState.textures.map(texture=>
+                  <div key={uuidv4()} className={styles.textureContainer}>
+                    <p key={uuidv4()}>{texture.name}</p>
+                    <img key={uuidv4()}>{texture.image_url}</img>
+                  </div>)}
+            </div>
+          </div>
+          <div className={styles.details}>
+            <h6>Sizes</h6>
+            <div className={styles.sizesContainer}>
+              {productState.sizes.map(size =>
+                <div key={uuidv4()} className={styles.sizeItem}>
+                <b key={uuidv4()}>{size.name}</b>
+                {size.image_url? <img src={size.image_url} className={styles.sizeImage}></img>: null}
+                {size.dimensions.map(d => <p key={uuidv4()}>{d}</p>)}
+                </div>
+              )}
+            </div>
           </div>
           <div className='specContainer'>
             <a href={`${productState.spec_sheet}`}>
