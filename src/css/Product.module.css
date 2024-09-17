@@ -50,3 +50,15 @@
   justify-content: end;
 }
 
+.pdfContainer{
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid black;
+}
+
+/* .attrTitle{
+
+} */
+

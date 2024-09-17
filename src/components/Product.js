@@ -95,7 +95,7 @@ function Product() {
             <div className={styles.colorsContainer}>
               {productState.nonAccentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
-                <p>{color.name}</p>
+                <p className={styles.attrTitle}>{color.name}</p>
                 {color.accent_color? <i>Accent Color</i>: null}
                 <img className={styles.colorImage}
                       src={color.image_url}
@@ -142,7 +142,8 @@ function Product() {
             </div>
           </div>
           <div className='specContainer'>
-            <a href={`${productState.spec_sheet}`}>
+            <a className={styles.pdfContainer} target='blank' href={`${productState.spec_sheet}`}>
+              <i className='bi bi-file-pdf'></i>
               <div className='specSheetContainer'>Spec Sheet</div>
             </a>
             </div>
