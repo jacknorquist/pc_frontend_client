@@ -1,86 +1,26 @@
 import { useState } from "react";
 
-function Filter({ changeCategory }) {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const handleChange = (category) => () => {
-    setSelectedCategory(category);
-    changeCategory(category);
-  };
+function Filter() {
+  const categories = [
+    { id: 'paversSlabs', name: 'Pavers & Slabs', url: '/products/pavers-slabs' },
+    { id: 'permeablePavements', name: 'Permeable Pavements', url: '/products/permeable-pavements' },
+    { id: 'walls', name: 'Walls', url: '/products/walls' },
+    { id: 'steps', name: 'Steps', url: '/products/steps' },
+    { id: 'edgers', name: 'Edgers', url: '/products/edgers' },
+    { id: 'caps', name: 'Caps', url: '/products/caps' },
+    { id: 'accessories', name: 'Accessories', url: '/products/accessories' },
+  ];
 
   return (
     <div className="filter-container">
       <ul>
-        <li>
-          <input
-            type="radio"
-            id="paversSlabs"
-            name="category"
-            checked={selectedCategory === 'Pavers & Slabs'}
-            onChange={handleChange('Pavers & Slabs')}
-          />
-          <label htmlFor="paversSlabs">Pavers & Slabs</label>
-        </li>
-        <li>
-          <input
-            type="radio"
-            id="permeablePavements"
-            name="category"
-            checked={selectedCategory === 'Permeable Pavements'}
-            onChange={handleChange('Permeable Pavements')}
-          />
-          <label htmlFor="permeablePavements">Permeable Pavements</label>
-        </li>
-        <li>
-          <input
-            type="radio"
-            id="walls"
-            name="category"
-            checked={selectedCategory === 'Walls'}
-            onChange={handleChange('Walls')}
-          />
-          <label htmlFor="walls">Walls</label>
-        </li>
-        <li>
-          <input
-            type="radio"
-            id="steps"
-            name="category"
-            checked={selectedCategory === 'Steps'}
-            onChange={handleChange('Steps')}
-          />
-          <label htmlFor="steps">Steps</label>
-        </li>
-        <li>
-          <input
-            type="radio"
-            id="edgers"
-            name="category"
-            checked={selectedCategory === 'Edgers'}
-            onChange={handleChange('Edgers')}
-          />
-          <label htmlFor="edgers">Edgers</label>
-        </li>
-        <li>
-          <input
-            type="radio"
-            id="caps"
-            name="category"
-            checked={selectedCategory === 'Caps'}
-            onChange={handleChange('Caps')}
-          />
-          <label htmlFor="caps">Caps</label>
-        </li>
-        <li>
-          <input
-            type="radio"
-            id="accessories"
-            name="category"
-            checked={selectedCategory === 'Accessories'}
-            onChange={handleChange('Accessories')}
-          />
-          <label htmlFor="accessories">Accessories</label>
-        </li>
+        {categories.map((category) => (
+          <li key={category.id}>
+            <a href={category.url} className="category-link">
+              {category.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );

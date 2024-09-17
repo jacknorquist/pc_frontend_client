@@ -58,6 +58,15 @@
   border: 1px solid black;
 }
 
+.pdfContainer:hover{
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid black;
+  background-color: grey;
+}
+
 /* .attrTitle{
 
 } */

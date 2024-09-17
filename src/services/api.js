@@ -12,9 +12,8 @@ class ProductCatalogApi {
     let response
 
     if(category){
-      const cleanedCategory = category.replace(/ /g, '-')
 
-      response = await fetch(`${BASE_API_URL}/products/${cleanedCategory}`, {
+      response = await fetch(`${BASE_API_URL}/products/${category}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
