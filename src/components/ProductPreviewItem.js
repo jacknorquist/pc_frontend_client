@@ -6,7 +6,8 @@ import { categoryLinks } from '../services/categoryReferences.js';
 
 function ProductPreviewItem({product}) {
 
-  const cleanedProductName = product.name.replace(/ /g, '-')
+  const cleanedProductName = product.name.replace(/ /g, '-');
+  console.log(product.normalized_category_name)
 
   return (
     <div className={styles.productPreviewItem}data-id={product.id}>
@@ -15,9 +16,7 @@ function ProductPreviewItem({product}) {
           <Link className={styles.link} to={`/product/${cleanedProductName}`} state={{id : product.id}}>
             <p className='product-name'>{product.name}</p>
           </Link>
-          <Link className={styles.link} to={`${categoryLinks[product.normalized_category_name]}`} >
-            <p className={styles.productCategory}>{product.normalized_category_name}</p>
-          </Link>
+            <a href={`${categoryLinks[product.normalized_category_name]}`} className={styles.productCategory}>{product.normalized_category_name}</a>
         </div>
         <ul className={styles.colorsPreview}>
           {product.colors.map(color =>
