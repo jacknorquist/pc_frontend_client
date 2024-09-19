@@ -6,6 +6,7 @@ import ImageCarousel from './ImageCarousel';
 import ProductCatalogApi from '../services/api.js';
 import styles from '../css/Product.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import { categoryLinks } from '../services/categoryReferences.js';
 
 
 const TOKEN = process.env.API_KEY

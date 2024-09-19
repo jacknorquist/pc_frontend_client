@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import styles from '../css/ProductPreviewItem.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import { categoryLinks } from '../services/categoryReferences.js';
 
 function ProductPreviewItem({product}) {
 
@@ -14,9 +15,7 @@ function ProductPreviewItem({product}) {
           <Link to={`/product/${cleanedProductName}`} state={{id : product.id}}>
             <p className='product-name'>{product.name}</p>
           </Link>
-          <Link to={`/products/${product.normalized_category_name}`}>
-            <p><i>{product.normalized_category_name}</i></p>
-          </Link>
+          <a href={`/products${categoryLinks[product.normalized_category_name]}`}></a>
         </div>
         <ul className={styles.colorsPreview}>
           {product.colors.map(color =>
