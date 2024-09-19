@@ -106,6 +106,8 @@ function Product() {
                 </img>
                 <p className={styles.attrTitle}>{color.name}</p>
                 </div>)}
+              </div>
+              <div className={styles.colorsContainer}>
                 {productState.accentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
                 {color.accent_color? <i>Accent Color</i>: null}

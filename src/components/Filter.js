@@ -1,10 +1,11 @@
 import {filterCategories} from "../services/categoryReferences";
+import styles from '../css/Filter.module.css';
 
 function Filter() {
 
 
   return (
-    <div className="filter-container">
+    <div className={styles.filterContainer}>
       <ul>
         {filterCategories.map((category) => (
           <li key={category.id}>
