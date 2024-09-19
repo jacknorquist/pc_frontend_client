@@ -96,7 +96,6 @@ function Product() {
             <div className={styles.colorsContainer}>
               {productState.nonAccentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
-                <p className={styles.attrTitle}>{color.name}</p>
                 {color.accent_color? <i>Accent Color</i>: null}
                 <img className={styles.colorImage}
                       src={color.image_url}
@@ -105,10 +104,10 @@ function Product() {
                       onClick={updateImageState}
                       >
                 </img>
+                <p className={styles.attrTitle}>{color.name}</p>
                 </div>)}
                 {productState.accentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
-                <p>{color.name}</p>
                 {color.accent_color? <i>Accent Color</i>: null}
                 <img className={styles.colorImage}
                       src={color.image_url}
@@ -117,6 +116,7 @@ function Product() {
                       onClick={updateImageState}
                       >
                 </img>
+                <p>{color.name}</p>
                 </div>)}
               </div>
           </div>

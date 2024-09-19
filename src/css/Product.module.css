@@ -9,18 +9,18 @@
 }
 
 .productImages{
-  grid-column: 1/5;
+  grid-column: 1/6;
   margin-top: 15%;
 }
 
 .productInfo{
   margin-top: 15%;
   margin-left: 8%;
-  grid-column: 5/9;
+  grid-column: 6/11;
 }
 .colorsContainer{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
 }
 .colorImage{
   width: 85%;
@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
 }
 
 .sizesContainer{
