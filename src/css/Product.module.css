@@ -1,3 +1,7 @@
+a:visited {
+  color: black;
+}
+
 .productContainer{
   margin-top:15%;
   width: 65%;
@@ -51,6 +55,7 @@
 }
 
 .pdfContainer{
+  text-decoration: none;
   justify-content: center;
   text-decoration: none;
   box-sizing: border-box;

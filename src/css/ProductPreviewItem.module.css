@@ -1,3 +1,7 @@
+a:visited {
+  color: black;
+}
+
 .productPreviewItem{
     border: 1px solid lightgray;
     padding: 1em;
