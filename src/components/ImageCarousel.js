@@ -46,13 +46,13 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
           />
         ))}
         {imagesState.colorActive ?
-        <button className={styles.showAllBtn}
+        <div className={styles.showAllBtn}
               onClick={returnToAllImages}>
-             Show All Images
-        </button>
+                <p>All Images</p>
+        </div>
         :
         null}
-        </div>
+      </div>
 
 
 
