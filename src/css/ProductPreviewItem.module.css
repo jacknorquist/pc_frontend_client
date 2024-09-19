@@ -26,3 +26,12 @@
   border-radius: 100%;
   margin: .1em;
 }
+
+.link{
+  text-decoration: none;
+  color: black;
+}
+
+.productCategory{
+  margin-left: 1rem;
+}
