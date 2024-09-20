@@ -1,3 +1,13 @@
+.filterContainer{
+  position: sticky;
+  top: 0;
+}
+
 .filterContainer li{
   list-style-type: none;
+  border: 1px solid black;
+}
+
+.filterContainer a{
+  text-decoration: none;
 }

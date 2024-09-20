@@ -1,4 +1,5 @@
 const filterCategories = [
+  { id:'allProducts', name:'All Products', url:'/products'},
   { id: 'paversSlabs', name: 'Pavers & Slabs', url: '/products/pavers-slabs' },
   { id: 'permeablePavements', name: 'Permeable Pavements', url: '/products/permeable-pavements' },
   { id: 'walls', name: 'Walls', url: '/products/walls' },
