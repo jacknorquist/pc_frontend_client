@@ -16,6 +16,7 @@
 
 .thumbnailImage{
   width: 20%;
+  height: 100%;
   margin: .1rem;
   cursor: pointer;
 }
