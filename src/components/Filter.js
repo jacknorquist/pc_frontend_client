@@ -1,5 +1,6 @@
 import {filterCategories} from "../services/categoryReferences";
 import styles from '../css/Filter.module.css';
+import { v4 as uuidv4 } from 'uuid';
 
 function Filter() {
 
@@ -8,11 +9,11 @@ function Filter() {
     <div className={styles.filterContainer}>
       <ul>
         {filterCategories.map((category) => (
-          <li key={category.id}>
-            <a href={category.url} className="category-link">
+          <a key={uuidv4()} href={category.url} className="category-link">
+          <li key={uuidv4()}>
               {category.name}
-            </a>
           </li>
+          </a>
         ))}
       </ul>
     </div>
