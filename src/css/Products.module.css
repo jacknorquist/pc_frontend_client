@@ -1,6 +1,9 @@
 .productsPageContainer{
   display: flex;
+  justify-content: center;
+  width: 75%;
   height: 100%;
+  margin: auto;
 }
 
 .products{
@@ -8,7 +11,6 @@
   grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(45vh, 1fr));
 
-  width: 65em;
 
   text-align: center;
   margin: auto;
