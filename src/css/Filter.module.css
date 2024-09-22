@@ -4,8 +4,17 @@
 }
 
 .filterContainer li{
+  cursor: pointer;
   list-style-type: none;
   border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.filterContainer li:hover{
+  list-style-type: none;
+  border: 1px solid black;
+  background-color: grey;
   margin: 1rem;
   padding: 1rem;
 }
