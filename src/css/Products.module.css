@@ -9,9 +9,7 @@
 .products{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(45vh, 1fr));
-
-
+  /* grid-template-rows: repeat(auto-fill, minmax(55vh, 1fr)); */
   text-align: center;
   margin: auto;
 }
