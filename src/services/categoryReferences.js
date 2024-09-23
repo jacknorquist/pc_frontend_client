@@ -19,4 +19,16 @@ const categoryLinks = {
   'Accessories': '/products/accessories'
 }
 
-export {filterCategories, categoryLinks}
+
+const filterRef = {
+  undefined :0,
+  'permeable-pavements': 1,
+  'pavers-slabs': 2,
+  'walls': 3,
+  'steps': 4,
+  'edgers': 5,
+  'caps': 6,
+  'accessories': 7
+}
+
+export {filterCategories, categoryLinks, filterRef}

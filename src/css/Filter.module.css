@@ -3,12 +3,23 @@
   top: 0;
 }
 
-.filterContainer li{
+
+
+.category{
   cursor: pointer;
   list-style-type: none;
   border: 1px solid black;
   margin: 1rem;
   padding: 1rem;
+}
+
+.activeCategory{
+  cursor: pointer;
+  list-style-type: none;
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: grey;
 }
 
 .filterContainer li:hover{
