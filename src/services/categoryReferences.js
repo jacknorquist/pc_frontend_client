@@ -22,8 +22,8 @@ const categoryLinks = {
 
 const filterRef = {
   undefined :0,
-  'permeable-pavements': 1,
-  'pavers-slabs': 2,
+  'pavers-slabs': 1,
+  'permeable-pavements': 2,
   'walls': 3,
   'steps': 4,
   'edgers': 5,
