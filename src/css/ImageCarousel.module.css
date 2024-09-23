@@ -1,4 +1,6 @@
 .imageCarousel{
+  top: 0;
+  position:sticky;
   height: 50%;
 }
 
