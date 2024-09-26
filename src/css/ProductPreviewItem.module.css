@@ -12,7 +12,9 @@ i{
     height: 65vh;
 
 }
-
+#productNameLink{
+  margin: 1%;
+}
 .descriptionContainer{
   text-align: left;
   margin: 0;
