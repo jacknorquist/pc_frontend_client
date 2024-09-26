@@ -87,6 +87,7 @@ function Product() {
           </div>
           <div className={styles.productInfo}>
             <h1>{productState.name}</h1>
+            <a href={`${categoryLinks[productState.normalized_category_name]}`} className={styles.productCategory}><i>{productState.normalized_category_name}</i></a>
           <div className={styles.descriptionContainer}>
             <h4>Description</h4>
             <p>{productState.description}</p>
