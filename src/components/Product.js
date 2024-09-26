@@ -88,11 +88,11 @@ function Product() {
           <div className={styles.productInfo}>
             <h1>{productState.name}</h1>
           <div className={styles.descriptionContainer}>
-            <h6>Description</h6>
+            <h4>Description</h4>
             <p>{productState.description}</p>
           </div>
           <div className={styles.details}>
-            <h6>Colors</h6>
+            <h4>Colors</h4>
             <div className={styles.colorsContainer}>
               {productState.nonAccentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
@@ -124,7 +124,7 @@ function Product() {
           </div>
           <div className={styles.details}>
             <div className={styles.textureContainer}>
-              <h6>Textures</h6>
+              <h4>Textures</h4>
                 {productState.textures.map(texture=>
                   <div key={uuidv4()} className={styles.textureContainer}>
                     <p key={uuidv4()}>{texture.name}</p>
@@ -133,7 +133,7 @@ function Product() {
             </div>
           </div>
           <div className={styles.details}>
-            <h6>Sizes</h6>
+            <h4>Sizes</h4>
             <div className={styles.sizesContainer}>
               {productState.sizes.map(size =>
                 <div key={uuidv4()} className={styles.sizeItem}>
@@ -145,6 +145,7 @@ function Product() {
             </div>
           </div>
           <div className='specContainer'>
+            <h4>Additional Information</h4>
             <a className={styles.pdfContainer} target='blank' href={`${productState.spec_sheet}`}>
               <i className='bi bi-file-pdf'></i>
               <div className='specSheetContainer'>Spec Sheet</div>
