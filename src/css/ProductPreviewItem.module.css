@@ -12,6 +12,7 @@ i{
     height: 65vh;
 
 }
+
 .descriptionContainer{
   text-align: left;
   margin: 0;
@@ -22,7 +23,8 @@ i{
 }
 
 .descriptionContainer b{
-  margin: 0;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 .descriptionContainer a{
   text-decoration: none;
