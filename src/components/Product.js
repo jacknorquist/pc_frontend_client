@@ -1,6 +1,5 @@
 
-
-import { useState, useEffect,location} from 'react';
+import { useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import ImageCarousel from './ImageCarousel';
 import ProductCatalogApi from '../services/api.js';
@@ -148,8 +147,8 @@ function Product() {
           <div className='specContainer'>
             <h4>Additional Information</h4>
             <a className={styles.pdfContainer} target='blank' href={`${productState.spec_sheet}`}>
-              <i className='bi bi-file-pdf'></i>
               <div className='specSheetContainer'>Spec Sheet</div>
+              <i className='bi bi-file-pdf'></i>
             </a>
             </div>
           </div>

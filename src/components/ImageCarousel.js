@@ -24,9 +24,6 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
     });
   }, [imagesProp]);
 
-
-
-
   //if images state signals that a color has been clicked, show images connected
   //to the color, else display all images
   return (
@@ -53,12 +50,7 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
         :
         null}
       </div>
-
-
-
     </div>
-
-
   );
 }
 
