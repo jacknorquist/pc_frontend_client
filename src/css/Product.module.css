@@ -76,6 +76,9 @@ a:visited {
 .pdfContainer:hover{
   background-color: grey;
 }
+.pdfContainer a{
+  text-decoration: none;
+}
 
 /* .attrTitle{
 
