@@ -133,14 +133,6 @@ function Product() {
               </div>
           </div>
           <div className={styles.details}>
-            <div className={styles.textureContainer}>
-              <h4>Textures</h4>
-                {productState.textures.map(texture=>
-                  <div key={uuidv4()} className={styles.textureContainer}>
-                    <p key={uuidv4()}>{texture.name}</p>
-                    <img key={uuidv4()}>{texture.image_url}</img>
-                  </div>)}
-            </div>
           </div>
           <div className={styles.details}>
             <h4>Sizes</h4>
@@ -152,6 +144,14 @@ function Product() {
                 {size.dimensions.map(d => <p key={uuidv4()}>{d}</p>)}
                 </div>
               )}
+            </div>
+            <div className={styles.textureContainer}>
+              <h4>Textures</h4>
+                {productState.textures.map(texture=>
+                  <div key={uuidv4()} className={styles.textureContainer}>
+                    <p key={uuidv4()}>{texture.name}</p>
+                    <img key={uuidv4()}>{texture.image_url}</img>
+                  </div>)}
             </div>
           </div>
           <div className='specContainer'>
