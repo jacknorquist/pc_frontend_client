@@ -35,6 +35,10 @@ color: black;
   display: flex;
   justify-content: space-between;
 }
+
+.logo{
+  width: 100%;
+}
 .colorsContainer{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));

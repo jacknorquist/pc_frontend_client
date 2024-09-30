@@ -93,7 +93,7 @@ function Product() {
               </div>
               <div className={styles.logoContainer}>
                 <a href={manufacturerUrls[productState.manufacturer.name]}>
-                  <img src={logos[productState.manufacturer.name]}></img>
+                  <img className={styles.logo}src={logos[productState.manufacturer.name]}></img>
                 </a>
               </div>
             </div>
