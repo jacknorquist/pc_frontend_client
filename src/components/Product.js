@@ -6,6 +6,7 @@ import ProductCatalogApi from '../services/api.js';
 import styles from '../css/Product.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { categoryLinks } from '../services/categoryReferences.js';
+import {logos , manufacturerUrls}from '../services/logourls.js';
 
 
 const TOKEN = process.env.API_KEY
@@ -85,8 +86,17 @@ function Product() {
             <ImageCarousel imagesProp={imagesState} returnToAllImages={returnToAllImages}/>
           </div>
           <div className={styles.productInfo}>
-            <h1>{productState.name}</h1>
-            <a href={`${categoryLinks[productState.normalized_category_name]}`} className={styles.productCategory}><i>{productState.normalized_category_name}</i></a>
+            <div className={styles.mainProductInfo}>
+              <div>
+                <h1>{productState.name}</h1>
+                <a href={`${categoryLinks[productState.normalized_category_name]}`} className={styles.productCategory}><i>{productState.normalized_category_name}</i></a>
+              </div>
+              <div className={styles.logoContainer}>
+                <a href={manufacturerUrls[productState.manufacturer.name]}>
+                  <img src={logos[productState.manufacturer.name]}></img>
+                </a>
+              </div>
+            </div>
           <div className={styles.descriptionContainer}>
             <h4>Description</h4>
             <p>{productState.description}</p>
