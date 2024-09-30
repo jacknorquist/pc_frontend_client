@@ -5,8 +5,8 @@ a:visited {
 a{
 color: black;
 }
-h4, h1, b{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+h4, h1, b, p{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important
 }
 
 
