@@ -43,3 +43,14 @@
   justify-content: center;
   opacity: 85%;
 }
+
+@media (max-width:480px){
+  .thumbnailImages{
+    display: flex;
+    height: 20%;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+  }
+}
