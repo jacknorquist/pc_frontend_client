@@ -89,7 +89,6 @@ function Product() {
             <div className={styles.mainProductInfo}>
               <div>
                 <h1>{productState.name}</h1>
-                <a href={`${categoryLinks[productState.normalized_category_name]}`} className={styles.productCategory}><i>{productState.normalized_category_name}</i></a>
               </div>
               <div className={styles.logoContainer}>
                 <a className={styles.logoLink} href={manufacturerUrls[productState.manufacturer.name]}>
@@ -97,6 +96,7 @@ function Product() {
                 </a>
               </div>
             </div>
+                <a href={`${categoryLinks[productState.normalized_category_name]}`} className={styles.productCategory}><i>{productState.normalized_category_name}</i></a>
           <div className={styles.descriptionContainer}>
             <h4 className={styles.headerContainer}>Description</h4>
             <p>{productState.description}</p>
