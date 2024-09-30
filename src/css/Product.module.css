@@ -6,6 +6,10 @@ a{
 color: black;
 }
 
+h4{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 .productContainer{
   margin-top:15%;
   height: 100%;
@@ -36,16 +40,25 @@ color: black;
   justify-content: space-between;
 }
 
+.descriptionContainer{
+  padding-top: 1%;
+}
+
+.headerContainer{
+  border-bottom: 1px solid lightgray;
+}
+
 .logo{
   width: 100%;
 }
-.colorsContainer{
+.typeContainer{
+  padding-top: 1%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
 }
 
 .colorImage{
-  width: 100%;
+  width: 75%;
 }
 
 .colorItem{
@@ -61,10 +74,13 @@ color: black;
 .sizesContainer{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  margin-top: 1%;
 }
 .sizeImage{
-  width: 100%;
+  width: 75%;
 }
+
+
 
 .sizeItem{
   text-align: center;
@@ -113,11 +129,23 @@ color: black;
     height: 100%;
   }
 
+
   .mainProductInfo{
     align-items: center;
     display: flex;
     justify-content: space-between;
   }
+  .logoContainer{
+    display: flex;
+    justify-content: end;
+  }
+  .logoLink{
+    width: 33%;
+  }
+  .logo{
+    width: 100%;
+  }
+
   .colorsContainer{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));

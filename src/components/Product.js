@@ -92,18 +92,18 @@ function Product() {
                 <a href={`${categoryLinks[productState.normalized_category_name]}`} className={styles.productCategory}><i>{productState.normalized_category_name}</i></a>
               </div>
               <div className={styles.logoContainer}>
-                <a href={manufacturerUrls[productState.manufacturer.name]}>
+                <a className={styles.logoLink} href={manufacturerUrls[productState.manufacturer.name]}>
                   <img className={styles.logo}src={logos[productState.manufacturer.name]}></img>
                 </a>
               </div>
             </div>
           <div className={styles.descriptionContainer}>
-            <h4>Description</h4>
+            <h4 className={styles.headerContainer}>Description</h4>
             <p>{productState.description}</p>
           </div>
           <div className={styles.details}>
-            <h4>Colors</h4>
-            <div className={styles.colorsContainer}>
+              <h4 className={styles.headerContainer}>Colors</h4>
+            <div className={styles.typeContainer}>
               {productState.nonAccentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
                 {color.accent_color? <i>Accent Color</i>: null}
@@ -117,7 +117,7 @@ function Product() {
                 <p className={styles.attrTitle}>{color.name}</p>
                 </div>)}
               </div>
-              <div className={styles.colorsContainer}>
+              <div className={styles.typeContainer}>
                 {productState.accentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
                 {color.accent_color? <i>Accent Color</i>: null}
@@ -133,10 +133,8 @@ function Product() {
               </div>
           </div>
           <div className={styles.details}>
-          </div>
-          <div className={styles.details}>
-            <h4>Sizes</h4>
-            <div className={styles.sizesContainer}>
+            <h4 className={styles.headerContainer}>Sizes</h4>
+            <div className={styles.typeContainer}>
               {productState.sizes.map(size =>
                 <div key={uuidv4()} className={styles.sizeItem}>
                 <b key={uuidv4()}>{size.name}</b>
@@ -146,16 +144,18 @@ function Product() {
               )}
             </div>
             <div className={styles.textureContainer}>
-              <h4>Textures</h4>
+              <h4 className={styles.headerContainer}>Textures</h4>
+              <div className={styles.typeContainer}>
                 {productState.textures.map(texture=>
                   <div key={uuidv4()} className={styles.textureContainer}>
                     <p key={uuidv4()}>{texture.name}</p>
                     <img key={uuidv4()}>{texture.image_url}</img>
                   </div>)}
+                </div>
             </div>
           </div>
           <div className='specContainer'>
-            <h4>Additional Information</h4>
+            <h4 className={styles.headerContainer}>Additional Information</h4>
             <a className={styles.pdfContainer} target='blank' href={`${productState.spec_sheet}`}>
               <div className='specSheetContainer'>Spec Sheet</div>
               <i className='bi bi-file-pdf'></i>
