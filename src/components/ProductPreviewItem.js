@@ -18,6 +18,7 @@ function ProductPreviewItem({product}) {
             <b className={styles.productName}>{product.name}</b>
           </Link>
         </div>
+
         <ul className={styles.colorsPreview}>
           {product.colors.map(color =>
                                <li key={uuidv4()} className={styles.colorPreview}>

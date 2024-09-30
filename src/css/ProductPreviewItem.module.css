@@ -38,6 +38,8 @@ i{
 .colorsPreview{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+  grid-template-rows: 100%;
+  height: 10%;
   list-style-type: none;
   margin: 0;
   padding-left: 0;
