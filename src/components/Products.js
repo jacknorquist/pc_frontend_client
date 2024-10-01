@@ -16,7 +16,11 @@ function Products() {
     category: category,
     products:null
   });
-  console.log(category)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(isMenuOpen => !isMenuOpen);
+  };
+  console.log( isMenuOpen)
   // const [activeIndex, setActiveIndex] = useState(0); // State to keep track of the active item
 
   // const handleClick = (index) => {
@@ -49,8 +53,9 @@ function Products() {
 
   return (
     <div className={styles.productsPageContainer}>
+      <i className='bi bi-list' id={styles.menuIcon} onClick={toggleMenu}></i>
       <div className={styles.filterContainer}>
-      <ul>
+      <ul className={isMenuOpen ? styles.navLinksActive : styles.navLinks}>
         {filterCategories.map((category, index) => (
           <a key={uuidv4()} href={category.url} className="category-link">
           <li

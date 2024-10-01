@@ -7,7 +7,6 @@ import { categoryLinks } from '../services/categoryReferences.js';
 function ProductPreviewItem({product}) {
 
   const cleanedProductName = product.name.replace(/ /g, '-');
-  console.log(product.normalized_category_name)
 
   return (
     <div className={styles.productPreviewItem}data-id={product.id}>

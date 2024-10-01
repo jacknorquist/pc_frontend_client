@@ -5,15 +5,21 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Filter() {
   const [activeIndex, setActiveIndex] = useState(0); // State to keep track of the active item
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = (index) => {
     setActiveIndex(index); // Update the active index on click
   };
 
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+
   return (
     <div className={styles.filterContainer}>
-      <ul>
+      <ul className={isMenuOpen ? styles.navlinks : styles.navLinksActive}>
         {filterCategories.map((category, index) => (
           <a key={uuidv4()} href={category.url} className="category-link">
           <li
@@ -26,6 +32,7 @@ function Filter() {
           </a>
         ))}
       </ul>
+      <i className='bi bi-list' id={styles.menuIcon} onClick={toggleMenu}></i>
     </div>
   );
 }
