@@ -23,7 +23,9 @@ function Product() {
   const {id} = location.state;
 
   let accentColors =[]
-  let nonAccentColors =[]
+  let nonAccentColors =[];
+
+  console.log(productState)
 
 
   useEffect(() => {
@@ -92,7 +94,7 @@ function Product() {
               </div>
               <div className={styles.logoContainer}>
                 <a className={styles.logoLink} href={manufacturerUrls[productState.manufacturer.name]}>
-                  <img className={styles.logo}src={logos[productState.manufacturer.name]}></img>
+                  <img className={styles.logo}src={logos[productState.manufacturer.name]} />
                 </a>
               </div>
             </div>
@@ -112,8 +114,7 @@ function Product() {
                       data-name={color.name}
                       data-url={color.image_url}
                       onClick={updateImageState}
-                      >
-                </img>
+                      />
                 <p className={styles.attrTitle}>{color.name}</p>
                 </div>)}
               </div>
@@ -126,8 +127,7 @@ function Product() {
                       data-name={color.name}
                       data-url={color.image_url}
                       onClick={updateImageState}
-                      >
-                </img>
+                      />
                 <p>{color.name}</p>
                 </div>)}
               </div>
@@ -138,7 +138,7 @@ function Product() {
               {productState.sizes.map(size =>
                 <div key={uuidv4()} className={styles.sizeItem}>
                 <b key={uuidv4()}>{size.name}</b>
-                {size.image_url? <img src={size.image_url} className={styles.sizeImage}></img>: null}
+                {size.image_url? <img src={size.image_url} className={styles.sizeImage}/>: null}
                 {size.dimensions.map(d => <p key={uuidv4()}>{d}</p>)}
                 </div>
               )}
@@ -149,7 +149,7 @@ function Product() {
                 {productState.textures.map(texture=>
                   <div key={uuidv4()} className={styles.textureContainer}>
                     <p key={uuidv4()}>{texture.name}</p>
-                    <img key={uuidv4()}>{texture.image_url}</img>
+                    <img key={uuidv4()} src={texture.image_url} />
                   </div>)}
                 </div>
             </div>
