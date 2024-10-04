@@ -44,26 +44,30 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
 
 
   function increaseImageIndex(event){
-    const newIndex = event.target.dataset.id;
+    const newIndex = ++imagesState.index;
+    const lastIndex = imagesState.images.length-1;
 
-    if(imagesState.index <=2){
-      setImageState(prevState => ({
-        ...prevState,
-        index: prevState++, // Ensure the index is a number
-        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
-      }));
-    }
-
-    if(newIndex<=1){
+    if(newIndex === lastIndex){
+      const lastPart = imagesState.images.slice(0,1);
+      const firstPart = imagesState.images.slice(newIndex-2, newIndex)
       setImageState(prevState => ({
         ...prevState,
         index: Number(newIndex), // Ensure the index is a number
-        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
+        imagesCut: [lastPart, firstPart].flat()
+      }));
+    }else if(newIndex === lastIndex+1){
+
+      const lastPart = imagesState.images.slice(0,2);
+      const firstPart = imagesState.images.slice(newIndex-1, newIndex)
+      setImageState(prevState => ({
+        ...prevState,
+        index: Number(newIndex), // Ensure the index is a number
+        imagesCut: [firstPart, lastPart].flat()
       }));
     }
     setImageState(prevState => ({
       ...prevState,
-      index: Number(newIndex), // Ensure the index is a number
+      index: newIndex, // Ensure the index is a number
       imagesCut: prevState.images.slice(newIndex-2, newIndex+2)
     }));
   }
@@ -88,7 +92,7 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
         <img className={styles.mainImage} src={imagesState.images[imagesState.index].image_url}/>
       </div>
       <div className={styles.thumbnailImages}>
-      <i className="bi bi-arrow-left" onClick={increaseImageIndex}></i>
+      <i className="bi bi-arrow-left" onClick={decreaseImageIndex}></i>
       {imagesState.imagesCut.map((image, index) => (
         <div className={index === 2? styles.thumbnailImageActive : styles.thumbnailImage} key={uuidv4()} data-id={index} onClick={updateImageIndex}>
             <img
@@ -107,7 +111,7 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
         </div>
         :
         null}
-        <i className="bi bi-arrow-right" onClick={decreaseImageIndex}></i>
+        <i className="bi bi-arrow-right" onClick={increaseImageIndex}></i>
       </div>
     </div>
   );
