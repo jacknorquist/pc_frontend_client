@@ -33,16 +33,15 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
       </div>
       <div className={styles.thumbnailImages}>
       {imagesState.images.map((image, index) => (
-        <div className={styles.thumbnaiContainer}>
-          <img
-            key={uuidv4()}
-            data-id={index}
-            className={styles.thumbnailImage}
-            src={image.image_url}
-            alt={`Thumbnail ${index}`} // Add alt text for accessibility
-            onClick={updateImageIndex}
+        <div className={styles.thumbnailImage} key={uuidv4()} data-id={index} onClick={updateImageIndex}>
+            <img
+              key={uuidv4()}
+              data-id={index}
+              src={image.image_url}
+              alt={`Thumbnail ${index}`} // Add alt text for accessibility
+              onClick={updateImageIndex}
           />
-        </div>
+          </div>
         ))}
         {imagesState.colorActive ?
         <div className={styles.showAllBtn}

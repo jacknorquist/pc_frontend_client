@@ -8,28 +8,32 @@
   width: 100%;
 }
 
-.thumbnailContainer{
 
-  width: 20%; /* Full width */
-/* Maintain square aspect ratio */
-  overflow: hidden;
-  margin: .1rem;
+.thumbnailImage {
+  flex: 0 0 20%;               /* Each image takes up 20% of the container width */
+  height: 0;                   /* Set height to 0 to use padding for square aspect ratio */
+  padding-top: 20%;            /* Use padding-top to maintain a square aspect ratio */
+  position: relative;
+  box-sizing: border-box;
+  margin-right: 1%;          /* Required for absolute positioning of the image */
+}
+
+.thumbnailImage img {
+  position: absolute;          /* Position the image absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;                /* Image takes full width */
+  height: 100%;               /* Image takes full height */
+  object-fit: cover;          /* Ensure the image covers the entire area */
 }
 
 .thumbnailImages{
   display: flex;
-  height: 20%;
   width: 100%;
   overflow: hidden;
   align-items: center;
 }
 
-.thumbnailImage{
-/* Absolute positioning */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  object-fit: cover;
-}
 .showAllBtn{
   width: 20%;
   height: 100%;
