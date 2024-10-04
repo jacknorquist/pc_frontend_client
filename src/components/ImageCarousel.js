@@ -6,23 +6,78 @@ import styles from '../css/ImageCarousel.module.css'
 const TOKEN = process.env.API_KEY
 
 function ImageCarousel({imagesProp, returnToAllImages}) {
-  const [imagesState, setImageState] = useState({images:imagesProp.images, index:2, colorActive:imagesProp.colorActive})
+  const [imagesState, setImageState] = useState({images:imagesProp.images, index:2, imagesCut:imagesProp.images.slice(0,4), colorActive:imagesProp.colorActive})
 
   function updateImageIndex(event){
     const newIndex = event.target.dataset.id
+
+    if(newIndex<=1){
+      setImageState(prevState => ({
+        ...prevState,
+        index: Number(newIndex), // Ensure the index is a number
+        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
+      }));
+    }
     setImageState(prevState => ({
       ...prevState,
-      index: Number(newIndex) // Ensure the index is a number
+      index: Number(newIndex), // Ensure the index is a number
+      imagesCut: prevState.images.slice(newIndex-2, newIndex+2)
     }));
   }
 
-  useEffect(() => {
-    setImageState({
-      images: imagesProp.images,
-      index: 2, // Reset index if needed
-      colorActive: imagesProp.colorActive
-    });
-  }, [imagesProp]);
+  function decreaseImageIndex(event){
+    const newIndex = event.target.dataset.id
+
+    if(newIndex<=1){
+      setImageState(prevState => ({
+        ...prevState,
+        index: Number(newIndex), // Ensure the index is a number
+        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
+      }));
+    }
+    setImageState(prevState => ({
+      ...prevState,
+      index: Number(newIndex), // Ensure the index is a number
+      imagesCut: prevState.images.slice(newIndex-2, newIndex+2)
+    }));
+  }
+
+
+  function increaseImageIndex(event){
+    const newIndex = event.target.dataset.id;
+
+    if(imagesState.index <=2){
+      setImageState(prevState => ({
+        ...prevState,
+        index: prevState++, // Ensure the index is a number
+        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
+      }));
+    }
+
+    if(newIndex<=1){
+      setImageState(prevState => ({
+        ...prevState,
+        index: Number(newIndex), // Ensure the index is a number
+        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
+      }));
+    }
+    setImageState(prevState => ({
+      ...prevState,
+      index: Number(newIndex), // Ensure the index is a number
+      imagesCut: prevState.images.slice(newIndex-2, newIndex+2)
+    }));
+  }
+
+  // useEffect(() => {
+  //   setImageState({
+  //     images: imagesProp.images,
+  //     index: 2,
+  //     imagesCut: imagesProp.images.slice(0, 4), // Reset index if needed
+  //     colorActive: imagesProp.colorActive
+  //   });
+  // }, [imagesProp]);
+
+  console.log(imagesState.imagesCut)
   console.log(imagesState.index)
 
   //if images state signals that a color has been clicked, show images connected
@@ -33,9 +88,9 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
         <img className={styles.mainImage} src={imagesState.images[imagesState.index].image_url}/>
       </div>
       <div className={styles.thumbnailImages}>
-      <i className="bi bi-arrow-left"></i>
-      {imagesState.images.map((image, index) => (
-        <div className={index === imagesState.index? styles.thumbnailImageActive : styles.thumbnailImage} key={uuidv4()} data-id={index} onClick={updateImageIndex}>
+      <i className="bi bi-arrow-left" onClick={increaseImageIndex}></i>
+      {imagesState.imagesCut.map((image, index) => (
+        <div className={index === 2? styles.thumbnailImageActive : styles.thumbnailImage} key={uuidv4()} data-id={index} onClick={updateImageIndex}>
             <img
               key={uuidv4()}
               data-id={index}
@@ -52,7 +107,7 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
         </div>
         :
         null}
-        <i className="bi bi-arrow-right"></i>
+        <i className="bi bi-arrow-right" onClick={decreaseImageIndex}></i>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@
 }
 
 .thumbnailImage, .thumbnailImageActive {
-  flex: 0 0 25%;               /* Each image takes up 20% of the container width */
+  flex: 0 0 20%;               /* Each image takes up 20% of the container width */
   height: 0;                   /* Set height to 0 to use padding for square aspect ratio */
   padding-top: 20%;            /* Use padding-top to maintain a square aspect ratio */
   position: relative;
