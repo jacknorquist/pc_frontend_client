@@ -8,6 +8,14 @@
   width: 100%;
 }
 
+.thumbnailContainer{
+
+  width: 20%; /* Full width */
+/* Maintain square aspect ratio */
+  overflow: hidden;
+  margin: .1rem;
+}
+
 .thumbnailImages{
   display: flex;
   height: 20%;
@@ -17,9 +25,10 @@
 }
 
 .thumbnailImage{
-  width: 20%;
-  height: 100%;
-  margin: .1rem;
+/* Absolute positioning */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover;
 }
 .showAllBtn{
   width: 20%;

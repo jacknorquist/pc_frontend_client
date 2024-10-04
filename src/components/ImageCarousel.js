@@ -33,6 +33,7 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
       </div>
       <div className={styles.thumbnailImages}>
       {imagesState.images.map((image, index) => (
+        <div className={styles.thumbnaiContainer}>
           <img
             key={uuidv4()}
             data-id={index}
@@ -41,6 +42,7 @@ function ImageCarousel({imagesProp, returnToAllImages}) {
             alt={`Thumbnail ${index}`} // Add alt text for accessibility
             onClick={updateImageIndex}
           />
+        </div>
         ))}
         {imagesState.colorActive ?
         <div className={styles.showAllBtn}
