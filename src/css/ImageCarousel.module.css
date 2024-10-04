@@ -8,23 +8,37 @@
   width: 100%;
 }
 
-
-.thumbnailImage {
-  flex: 0 0 20%;               /* Each image takes up 20% of the container width */
+.thumbnailImage, .thumbnailImageActive {
+  flex: 0 0 25%;               /* Each image takes up 20% of the container width */
   height: 0;                   /* Set height to 0 to use padding for square aspect ratio */
   padding-top: 20%;            /* Use padding-top to maintain a square aspect ratio */
   position: relative;
   box-sizing: border-box;
-  margin-right: 1%;          /* Required for absolute positioning of the image */
+  margin-right: 1%;     /* Include padding and borders in width calculations */
 }
 
-.thumbnailImage img {
+.thumbnailImageActive{
+  border: 1px solid black;
+  flex: 0 0 22%;
+  padding-top: 22%;
+}
+.thumbnailImage img, .thumbnailImageActive img {
   position: absolute;          /* Position the image absolutely */
   top: 0;
   left: 0;
   width: 100%;                /* Image takes full width */
   height: 100%;               /* Image takes full height */
   object-fit: cover;          /* Ensure the image covers the entire area */
+}
+
+.thumbnailImage img{
+  position: absolute;          /* Position the image absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;                /* Image takes full width */
+  height: 100%;               /* Image takes full height */
+  object-fit: cover;
+  opacity: 65%;         /* Ensure the image covers the entire area */
 }
 
 .thumbnailImages{
