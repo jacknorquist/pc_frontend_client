@@ -53,17 +53,17 @@ function Product() {
   function updateImageState(event) {
     const clickedElement = event.currentTarget;
     const dataUrl = clickedElement.dataset.url;
-    const dataName = clickedElement.dataset.name;
+    const dataId = clickedElement.dataset.id;
 
     setImagesState(prevState => {
       const filteredImages = productState.images.filter(
-        image => image.color === dataName
+        image => image.color_id == dataId
       );
 
       // Add the clicked image (dataUrl) as the first image
       return {
         images: [{ image_url: dataUrl }, ...filteredImages],
-        colorActive: dataName
+        colorActive: dataId
       };
     });
   }
@@ -111,7 +111,7 @@ function Product() {
                 {color.accent_color? <i>Accent Color</i>: null}
                 <img className={styles.colorImage}
                       src={color.image_url}
-                      data-name={color.name}
+                      data-id={color.id}
                       data-url={color.image_url}
                       onClick={updateImageState}
                       />
@@ -124,7 +124,7 @@ function Product() {
                 {color.accent_color? <i>Accent Color</i>: null}
                 <img className={styles.colorImage}
                       src={color.image_url}
-                      data-name={color.name}
+                      data-id={color.id}
                       data-url={color.image_url}
                       onClick={updateImageState}
                       />
