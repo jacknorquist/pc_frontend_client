@@ -50,6 +50,7 @@
 
 .thumbnailImages{
   display: flex;
+  justify-content: center;
   transition: transform 0.5s ease;
   width: 100%;
   overflow: hidden;

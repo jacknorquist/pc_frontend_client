@@ -6,6 +6,7 @@ const filterCategories = [
   { id: 'steps', name: 'Steps', url: '/products/steps' },
   { id: 'edgers', name: 'Edgers', url: '/products/edgers' },
   { id: 'caps', name: 'Caps', url: '/products/caps' },
+  { id: 'outdoorLivingKits', name: 'Outdoor Living Kits', url: '/products/outdoor-living-kits' },
   { id: 'accessories', name: 'Accessories', url: '/products/accessories' },
 ];
 
@@ -16,7 +17,8 @@ const categoryLinks = {
   'Steps': '/products/steps',
   'Edgers': '/products/edgers',
   'Caps': '/products/caps',
-  'Accessories': '/products/accessories'
+  'Accessories': '/products/accessories',
+  'Outdoor Living Kits': '.products/oudoor-living-kits'
 }
 
 
