@@ -6,7 +6,7 @@ const filterCategories = [
   { id: 'steps', name: 'Steps', url: '/products/steps' },
   { id: 'edgers', name: 'Edgers', url: '/products/edgers' },
   { id: 'caps', name: 'Caps', url: '/products/caps' },
-  { id: 'outdoorLivingKits', name: 'Outdoor Living Kits', url: '/products/outdoor-living-kits' },
+  { id: 'outdoorFireplaceKits', name: 'Outdoor & Fireplace Kits', url: '/products/outdoor-&-fireplace-kits' },
   { id: 'accessories', name: 'Accessories', url: '/products/accessories' },
 ];
 
@@ -17,8 +17,8 @@ const categoryLinks = {
   'Steps': '/products/steps',
   'Edgers': '/products/edgers',
   'Caps': '/products/caps',
+  'Outdoor & Fireplace Kits': '/products/outdoor-&-fireplace-kits',
   'Accessories': '/products/accessories',
-  'Outdoor Living Kits': '.products/oudoor-living-kits'
 }
 
 
@@ -30,7 +30,8 @@ const filterRef = {
   'steps': 4,
   'edgers': 5,
   'caps': 6,
-  'accessories': 7
+  'outdoor-&-fireplace-kits':7,
+  'accessories': 8
 }
 
 export {filterCategories, categoryLinks, filterRef}
