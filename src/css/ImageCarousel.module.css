@@ -4,20 +4,27 @@
   position:sticky;
 }
 
+.mainImageContainer {
+  position: relative; /* Create a positioning context for the button */
+}
+
 .mainImage{
+  height: 40rem;
   width: 100%;
 }
 
 .thumbnailImage, .thumbnailImageActive {
-  flex: 0 0 20%;               /* Each image takes up 20% of the container width */
+  transition: transform 0.5s ease;
+  flex: 0 0 15%;               /* Each image takes up 20% of the container width */
   height: 0;                   /* Set height to 0 to use padding for square aspect ratio */
-  padding-top: 20%;            /* Use padding-top to maintain a square aspect ratio */
+  padding-top: 15%;            /* Use padding-top to maintain a square aspect ratio */
   position: relative;
   box-sizing: border-box;
   margin-right: 1%;     /* Include padding and borders in width calculations */
 }
 
 .thumbnailImageActive{
+  transition: transform 0.5s ease;
   border: 1px solid black;
   flex: 0 0 22%;
   padding-top: 22%;
@@ -43,32 +50,27 @@
 
 .thumbnailImages{
   display: flex;
+  transition: transform 0.5s ease;
   width: 100%;
   overflow: hidden;
   align-items: center;
 }
 
-.showAllBtn{
-  width: 20%;
-  height: 100%;
-  background-color: rgb(226, 224, 224);
-  opacity: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 65%;
+.showAllBtn {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed for spacing */
+  right: 10px; /* Adjust as needed for spacing */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 5px 10px; /* Some padding for better click area */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth background color change */
 }
 
 .showAllBtn:hover{
-  cursor: pointer;
-  width: 20%;
-  height: 100%;
   background-color: grey;
   opacity:75%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 85%;
 }
 
 @media (max-width:480px){

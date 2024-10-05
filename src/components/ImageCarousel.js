@@ -1,120 +1,94 @@
-
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import styles from '../css/ImageCarousel.module.css'
+import styles from '../css/ImageCarousel.module.css';
 
-const TOKEN = process.env.API_KEY
+function ImageCarousel({ imagesProp, returnToAllImages }) {
+    const [imagesState, setImageState] = useState({
+        images: imagesProp.images,
+        index: Math.min(2, imagesProp.images.length - 1), // Start with the third image active
+        colorActive: imagesProp.colorActive,
+    });
 
-function ImageCarousel({imagesProp, returnToAllImages}) {
-  const [imagesState, setImageState] = useState({images:imagesProp.images, index:2, imagesCut:imagesProp.images.slice(0,4), colorActive:imagesProp.colorActive})
+    useEffect(()=>{
+        setImageState({
+          images:imagesProp.images,
+          index: Math.min(2, imagesProp.images.length - 1),
+          colorActive: imagesProp.colorActive
+        }
+        )
 
-  function updateImageIndex(event){
-    const newIndex = event.target.dataset.id
+    },[imagesProp])
 
-    if(newIndex<=1){
-      setImageState(prevState => ({
-        ...prevState,
-        index: Number(newIndex), // Ensure the index is a number
-        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
-      }));
+    const updateImageIndex = (event) => {
+        const newIndex = Number(event.target.dataset.id);
+        setImageState(prevState => ({
+            ...prevState,
+            index: newIndex,
+        }));
+    };
+
+    const handlePrev = () => {
+        setImageState(prevState => ({
+            ...prevState,
+            index: (prevState.index - 1 + prevState.images.length) % prevState.images.length,
+        }));
+    };
+
+    const handleNext = () => {
+        setImageState(prevState => ({
+            ...prevState,
+            index: (prevState.index + 1) % prevState.images.length,
+        }));
+    };
+
+    const totalVisible = Math.min(5, imagesState.images.length);
+    const halfVisible = Math.floor(totalVisible / 2);
+
+    // Calculate the start index based on the current active index
+    const startIndex = (imagesState.index - halfVisible + imagesState.images.length) % imagesState.images.length;
+
+    // Create an array to hold the displayed images
+    const displayedImages = [];
+    for (let i = 0; i < totalVisible; i++) {
+        const index = (startIndex + i) % imagesState.images.length;
+        displayedImages.push(imagesState.images[index]);
     }
-    setImageState(prevState => ({
-      ...prevState,
-      index: Number(newIndex), // Ensure the index is a number
-      imagesCut: prevState.images.slice(newIndex-2, newIndex+2)
-    }));
-  }
-
-  function decreaseImageIndex(event){
-    const newIndex = event.target.dataset.id
-
-    if(newIndex<=1){
-      setImageState(prevState => ({
-        ...prevState,
-        index: Number(newIndex), // Ensure the index is a number
-        imagesCut: prevState.images.slice(prevState.images.length, newIndex+2)
-      }));
-    }
-    setImageState(prevState => ({
-      ...prevState,
-      index: Number(newIndex), // Ensure the index is a number
-      imagesCut: prevState.images.slice(newIndex-2, newIndex+2)
-    }));
-  }
 
 
-  function increaseImageIndex(event){
-    const newIndex = ++imagesState.index;
-    const lastIndex = imagesState.images.length-1;
 
-    if(newIndex === lastIndex){
-      const lastPart = imagesState.images.slice(0,1);
-      const firstPart = imagesState.images.slice(newIndex-2, newIndex)
-      setImageState(prevState => ({
-        ...prevState,
-        index: Number(newIndex), // Ensure the index is a number
-        imagesCut: [lastPart, firstPart].flat()
-      }));
-    }else if(newIndex === lastIndex+1){
-
-      const lastPart = imagesState.images.slice(0,2);
-      const firstPart = imagesState.images.slice(newIndex-1, newIndex)
-      setImageState(prevState => ({
-        ...prevState,
-        index: Number(newIndex), // Ensure the index is a number
-        imagesCut: [firstPart, lastPart].flat()
-      }));
-    }
-    setImageState(prevState => ({
-      ...prevState,
-      index: newIndex, // Ensure the index is a number
-      imagesCut: prevState.images.slice(newIndex-2, newIndex+2)
-    }));
-  }
-
-  // useEffect(() => {
-  //   setImageState({
-  //     images: imagesProp.images,
-  //     index: 2,
-  //     imagesCut: imagesProp.images.slice(0, 4), // Reset index if needed
-  //     colorActive: imagesProp.colorActive
-  //   });
-  // }, [imagesProp]);
-
-  console.log(imagesState.imagesCut)
-  console.log(imagesState.index)
-
-  //if images state signals that a color has been clicked, show images connected
-  //to the color, else display all images
-  return (
-    <div className={styles.imageCarousel}>
-      <div>
-        <img className={styles.mainImage} src={imagesState.images[imagesState.index].image_url}/>
-      </div>
-      <div className={styles.thumbnailImages}>
-      <i className="bi bi-arrow-left" onClick={decreaseImageIndex}></i>
-      {imagesState.imagesCut.map((image, index) => (
-        <div className={index === 2? styles.thumbnailImageActive : styles.thumbnailImage} key={uuidv4()} data-id={index} onClick={updateImageIndex}>
-            <img
-              key={uuidv4()}
-              data-id={index}
-              src={image.image_url}
-              alt={`Thumbnail ${index}`} // Add alt text for accessibility
-              onClick={updateImageIndex}
-          />
-          </div>
-        ))}
-        {imagesState.colorActive ?
-        <div className={styles.showAllBtn}
-              onClick={returnToAllImages}>
-                <p>All Images</p>
+    return (
+        <div className={styles.imageCarousel}>
+            <div className={styles.mainImageContainer}>
+                <img className={styles.mainImage} src={imagesState.images[imagesState.index].image_url} alt="Main" />
+                {imagesState.colorActive && (
+                <div className={styles.showAllBtn} onClick={returnToAllImages}>
+                    <p>All Images</p>
+                </div>
+            )}
+            </div>
+            <div className={styles.thumbnailImages}>
+                <i className="bi bi-arrow-left" onClick={handlePrev}></i>
+                {displayedImages.map((image, index) => {
+                    const thumbnailIndex = (startIndex + index) % imagesState.images.length;
+                    return (
+                        <div
+                            className={thumbnailIndex === imagesState.index ? styles.thumbnailImageActive : styles.thumbnailImage}
+                            key={uuidv4()}
+                            data-id={thumbnailIndex}
+                            onClick={updateImageIndex}
+                        >
+                            <img
+                                data-id={thumbnailIndex}
+                                src={image.image_url}
+                                alt={`Thumbnail ${thumbnailIndex}`} // Use thumbnailIndex for accessibility
+                            />
+                        </div>
+                    );
+                })}
+                <i className="bi bi-arrow-right" onClick={handleNext}></i>
+            </div>
         </div>
-        :
-        null}
-        <i className="bi bi-arrow-right" onClick={increaseImageIndex}></i>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default ImageCarousel;
