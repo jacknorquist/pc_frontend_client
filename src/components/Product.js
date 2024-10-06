@@ -93,7 +93,7 @@ function Product() {
                 <h1>{productState.name}</h1>
               </div>
               <div className={styles.logoContainer}>
-                <a className={styles.logoLink} href={manufacturerUrls[productState.manufacturer.name]}>
+                <a className={styles.logoLink} href={manufacturerUrls[productState.manufacturer.name]} target='blank'>
                   <img className={styles.logo}src={logos[productState.manufacturer.name]} />
                 </a>
               </div>
