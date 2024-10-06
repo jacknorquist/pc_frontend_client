@@ -67,7 +67,9 @@ function ImageCarousel({ imagesProp, returnToAllImages }) {
             )}
             </div>
             <div className={styles.thumbnailImages}>
-                <i className="bi bi-arrow-left" onClick={handlePrev}></i>
+              <div className={styles.arrowContainer} onClick={handlePrev}>
+                <i className={`bi bi-arrow-left`}></i>
+              </div>
                 {displayedImages.map((image, index) => {
                     const thumbnailIndex = (startIndex + index) % imagesState.images.length;
                     return (
@@ -80,12 +82,14 @@ function ImageCarousel({ imagesProp, returnToAllImages }) {
                             <img
                                 data-id={thumbnailIndex}
                                 src={image.image_url}
-                                alt={`Thumbnail ${thumbnailIndex}`} // Use thumbnailIndex for accessibility
+                                alt={`Thumbnail ${thumbnailIndex}`}
                             />
                         </div>
                     );
                 })}
-                <i className="bi bi-arrow-right" onClick={handleNext}></i>
+              <div className={styles.arrowContainer} onClick={handleNext}>
+                <i className="bi bi-arrow-right"></i>
+              </div>
             </div>
         </div>
     );
