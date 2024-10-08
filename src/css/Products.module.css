@@ -99,6 +99,8 @@
   }
 
   .products{
+    position: absolute;
+    top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     /* grid-template-rows: repeat(auto-fill, minmax(55vh, 1fr)); */
@@ -121,9 +123,12 @@
   }
 
   .filterContainerActive{
+    height: 100%;
+    z-index: 10;
     background-color: #081a3a;
     text-align: left;
-    position: absolute;
+    top: 0;
+    position: sticky;
 
   }
 
@@ -136,7 +141,6 @@
 
   .navLinks{
     padding: 0;
-    top: 0;
     position: sticky;
   }
 
