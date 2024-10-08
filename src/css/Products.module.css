@@ -71,10 +71,6 @@
   position: sticky;
 }
 
-.navLinksActive{
-  top: 0;
-  position: sticky;
-}
 
 @media (max-width:480px){
   .productsPageContainer{
@@ -90,12 +86,6 @@
     margin: auto;
   }
   #menuIcon{
-    display:block;
-  }
-  .navLinks{
-    display: none;
-  }
-  .navLinksActive{
     display:block;
   }
 
@@ -122,6 +112,13 @@
 
   .filterContainer{
     position: absolute;
+    display: none;
+  }
+
+  .filterContainerActive{
+    position: absolute;
+    background-color: #081a3a;
+
   }
 
   .filterContainer li:hover{

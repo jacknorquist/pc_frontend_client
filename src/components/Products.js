@@ -54,8 +54,8 @@ function Products() {
   return (
     <div className={styles.productsPageContainer}>
       <i className='bi bi-list' id={styles.menuIcon} onClick={toggleMenu}></i>
-      <div className={styles.filterContainer}>
-      <ul className={isMenuOpen ? styles.navLinksActive : styles.navLinks}>
+      <div className={isMenuOpen ? styles.filterContainerActive : styles.filterContainer}>
+      <ul className={styles.navLinks}>
         {filterCategories.map((category, index) => (
           <a key={uuidv4()} href={category.url} className="category-link">
           <li
