@@ -52,8 +52,9 @@ function Products() {
 
 
   return (
-    <div className={styles.productsPageContainer}>
+    <div>
       <i className='bi bi-list' id={styles.menuIcon} onClick={toggleMenu}></i>
+    <div className={styles.productsPageContainer}>
       <div className={isMenuOpen ? styles.filterContainerActive : styles.filterContainer}>
       <ul className={styles.navLinks}>
         {filterCategories.map((category, index) => (
@@ -79,6 +80,7 @@ function Products() {
         </div>
       : null }
 
+    </div>
     </div>
   );
 }
