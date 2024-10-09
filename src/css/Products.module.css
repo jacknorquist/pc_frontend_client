@@ -95,7 +95,14 @@
 
 @media (max-width:480px){
   .productsPageContainer{
-    height: 100px;
+    position: absolute; /* This creates a positioning context */
+    overflow: auto; /* Enable scrolling within the container */
+    max-height: 100vh;
+  }
+
+  #menuIcon{
+    top: 0;
+    position: sticky;
     display: block;
   }
 
@@ -109,9 +116,6 @@
     width: 100%;
     margin: auto;
   }
-  #menuIcon{
-    display:block;
-  }
 
   /* .filterContainer{
     display: none;
@@ -124,11 +128,12 @@
   }
 
   .filterContainerActive{
-    height: 100%;
+    height: 100vh;
     z-index: 10;
     background-color: #081a3a;
     text-align: left;
-    top: 0;
+    overflow-y: scroll;
+    top: 50px;
     position: sticky;
 
   }
@@ -142,7 +147,6 @@
 
   .navLinks{
     padding: 0;
-    position: sticky;
   }
 
   .activeCategory{
