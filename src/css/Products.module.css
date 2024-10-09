@@ -109,7 +109,6 @@
 
   .products{
     position: absolute;
-    top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     /* grid-template-rows: repeat(auto-fill, minmax(55vh, 1fr)); */
@@ -134,7 +133,6 @@
     background-color: #081a3a;
     text-align: left;
     overflow-y: scroll;
-    top: 50px;
     position: sticky;
 
   }
@@ -143,6 +141,7 @@
     text-decoration: none;
   }
   .category{
+    margin: 0;
     color: white;
   }
 
@@ -151,6 +150,7 @@
   }
 
   .activeCategory{
+    margin: 0;
     color: white;
   }
 
