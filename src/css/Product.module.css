@@ -74,6 +74,11 @@ p{
   width: 75%;
 }
 
+.colorImageActive{
+  border: 2px solid black;
+  width: 75%;
+}
+
 .colorItem{
   cursor: pointer;
   text-align: center;

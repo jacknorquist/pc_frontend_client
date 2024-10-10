@@ -26,7 +26,7 @@ function Product() {
   let accentColors =[]
   let nonAccentColors =[];
 
-  console.log(productState)
+  console.log(productState, imagesState)
 
 
   useEffect(() => {
@@ -119,7 +119,7 @@ function Product() {
               {productState.nonAccentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
                 {color.accent_color? <i>Accent Color</i>: null}
-                <img className={styles.colorImage}
+                <img className={Number(imagesState.colorActive) === color.id ? styles.colorImageActive: styles.colorImage}
                       src={color.image_url}
                       data-id={color.id}
                       data-url={color.image_url}
@@ -132,7 +132,7 @@ function Product() {
                 {productState.accentColors.map(color =>
               <div className={styles.colorItem} key={uuidv4()}>
                 {color.accent_color? <i>Accent Color</i>: null}
-                <img className={styles.colorImage}
+                <img className={Number(imagesState.colorActive) === color.id ? styles.colorImageActive: styles.colorImage}
                       src={color.image_url}
                       data-id={color.id}
                       data-url={color.image_url}

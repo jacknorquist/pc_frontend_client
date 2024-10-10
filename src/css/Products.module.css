@@ -92,6 +92,18 @@
   background-color: #081a3a;
 }
 
+@media (max-width:1440px){
+  .products{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    /* grid-template-rows: repeat(auto-fill, minmax(55vh, 1fr)); */
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+
+}
+
 
 @media (max-width:480px){
   .productsPageContainer{
