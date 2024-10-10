@@ -78,7 +78,12 @@ function Products() {
                                                 key={uuidv4()}
                                                 product={p}/>)}
         </div>
-      : null }
+      :
+      <div className={styles.spinnerContainer}>
+        <div className="spinner-border" role="status">
+        </div>
+      </div>
+       }
 
     </div>
     </div>

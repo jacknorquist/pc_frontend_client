@@ -1,4 +1,5 @@
 .productsPageContainer{
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -90,6 +91,13 @@
 
 .filterContainer{
   background-color: #081a3a;
+}
+
+.spinnerContainer{
+    position: absolute;
+    top: 50%; /* Position from the top */
+    left: 50%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Center it */
 }
 
 @media (max-width:1440px){

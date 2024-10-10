@@ -75,6 +75,11 @@
   opacity:75%;
 }
 
+.showAllBtn p{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
 .arrowContainer{
   color: white;
   padding: 2%;
