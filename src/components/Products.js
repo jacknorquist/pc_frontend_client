@@ -79,9 +79,11 @@ function Products() {
                                                 product={p}/>)}
         </div>
       :
+      <div className={styles.products}>
       <div className={styles.spinnerContainer}>
         <div className="spinner-border" role="status">
         </div>
+      </div>
       </div>
        }
 
