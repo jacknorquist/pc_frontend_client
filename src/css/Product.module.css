@@ -184,6 +184,10 @@ p{
   .colorImage{
     width: 100%;
   }
+  .colorImageActive{
+    width: 100%;
+    border: 2px solid black;
+  }
 
   .colorItem{
     cursor: pointer;
