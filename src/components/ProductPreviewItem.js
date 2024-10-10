@@ -10,7 +10,9 @@ function ProductPreviewItem({product}) {
 
   return (
     <div className={styles.productPreviewItem}data-id={product.id}>
+        <Link className={styles.link} id={styles.productNameLink} to={`/product/${cleanedProductName}`} state={{id : product.id}}>
         <img src={product.images[0].image_url} className={styles.mainImage}/>
+        </Link>
         <div className={styles.descriptionContainer}>
           <a href={`${categoryLinks[product.normalized_category_name]}`} className={styles.productCategory}><i>{product.normalized_category_name}</i></a>
           <Link className={styles.link} id={styles.productNameLink} to={`/product/${cleanedProductName}`} state={{id : product.id}}>
