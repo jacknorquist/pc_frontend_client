@@ -5,6 +5,7 @@ import ImageCarousel from './ImageCarousel';
 import ProductCatalogApi from '../services/api.js';
 import styles from '../css/Product.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from "react-router-dom";
 import { categoryLinks } from '../services/categoryReferences.js';
 import {logos , manufacturerUrls}from '../services/logourls.js';
 
@@ -85,6 +86,15 @@ function Product() {
       {productState ?
         <div className={styles.productContainer}>
           <div className={styles.productImages}>
+            <div className={styles.breadcrumbs}>
+            <Link className={styles.breadcrumbsLink}  to={`/products/`}>
+              <i>Products</i>
+            </Link>
+            <i>/</i>
+            <Link className={styles.breadcrumbsLink}  to={`${categoryLinks[productState.normalized_category_name]}`}>
+              <i>{productState.normalized_category_name}</i>
+            </Link>
+            </div>
             <ImageCarousel imagesProp={imagesState} returnToAllImages={returnToAllImages}/>
           </div>
           <div className={styles.productInfo}>
