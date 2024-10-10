@@ -124,6 +124,17 @@ p{
   text-decoration: none;
 }
 
+@media (max-width:1440px){
+  .productContainer{
+    width: 95%;
+  }
+  .typeContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    margin-top: 1%;
+  }
+}
+
 @media (max-width:480px){
   .productContainer{
     display: block;
